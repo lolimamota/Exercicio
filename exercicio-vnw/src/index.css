@@ -7,3 +7,20 @@
   list-style: none;
   background-color: darkgrey;
 }
+
+img{
+  width: 100px;
+}
+
+.hover:hover{
+  transform: scale(1.2);
+  transition: ease-in-out;
+}
+
+.display{
+  display: none;
+}
+
+.show{
+  display: block;
+}

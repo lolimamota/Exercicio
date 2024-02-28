@@ -47,12 +47,12 @@ function Header() {
 
   return (
     <Section>
-    <h1 onClick={Readme}>Frases para exibir</h1>
+    <h1  className='hover' onClick={Readme}>Frases para exibir</h1>
     <Nav>
       <Ul>
-        <li onClick={Alert2}>Frase da Header</li>
-        <li onClick={Alert3}>Frase da Main</li>
-        <li onClick={Alert}>Frase do Footer</li>
+        <li  className='hover' onClick={Alert2}>Frase da Header</li>
+        <li  className='hover' onClick={Alert3}>Frase da Main</li>
+        <li  className='hover' onClick={Alert}>Frase do Footer</li>
       </Ul>
     </Nav>
     </Section>
