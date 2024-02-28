@@ -1,19 +1,18 @@
-import React, {useState, useEffect}from 'react'
+import React, {useState, useEffect, useContext}from 'react'
+import ClickContext from '../Contexts/ClickContext';
 
 export default function Counter() {
+    const {touch} = useContext(ClickContext);
     const [segundos, setSegundos] = useState(0);
-    const [pause, setPause] = useState(false)
 
     useEffect(() => {
         const intervalId = setInterval(() => {
             setSegundos((prevSegundos) => prevSegundos + 1);
         }, 1000);
-
-        // Limpe o intervalo quando o componente for desmontado
-        return () => {
-            clearInterval(intervalId);
-        };
-    }, [pause])
+        if(touch){
+            return clearInterval(intervalId)    
+        }
+    }, [touch])
     return (
         <>
             <h2>{segundos} segundos</h2>

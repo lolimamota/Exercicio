@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Counter from '../Card/Counter.jsx';
-import useContext from '../Contexts/useContext.jsx';
+import ClickContext from '../Contexts/ClickContext.jsx';
 
 const Section = styled.section`
 display:flex;
@@ -30,24 +30,28 @@ border: solid white;
 border-radius: 10px;
 `;
 
-function Footer(){
+function Footer() {
   const [touch, setTouch] = useState(false);
-  const Stop = ()=>{
-    setTouch(!touch);
+  const Stop = () => {
     alert("Nananinanão!!! Quer pausar por que?");
     const button = document.querySelector('.display');
     button.classList.toggle('show');
   };
+  const Pause = () =>{
+    setTouch(!touch);
+  }
 
   return (
-    <Section>
-    <h2>Tempo que fiquei preso nessa page:</h2>
-    <Div>
-    <Counter/>
-    <Button onClick={Stop}>PAUSE</Button>
-    <Button className='display'>Desculpa !</Button>
-    </Div>
-    </Section>
+    <ClickContext.Provider value={{touch}}>
+      <Section>
+        <h2>Tempo que fiquei preso nessa page:</h2>
+        <Div>
+          <Counter />
+          <Button onClick={Stop}>PAUSE</Button>
+          <Button onClick={Pause} className='display'>Desculpa !</Button>
+        </Div>
+      </Section>
+    </ClickContext.Provider>
   )
 }
 
