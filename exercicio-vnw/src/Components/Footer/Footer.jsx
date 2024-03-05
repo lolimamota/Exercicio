@@ -37,6 +37,9 @@ const [keep, setKeep] = useState()
       setTime((prevTime)=> prevTime + 1)
     }, 1000)
     setKeep(Counter)
+    alert("Nananinanão!!! Quer pausar por que?");
+    const button = document.querySelector('.display');
+    button.classList.toggle('show');
   };
 
   const End = ()=> {clearInterval(keep)};
@@ -46,7 +49,7 @@ const [keep, setKeep] = useState()
       <h2>Tempo que fiquei preso nessa página:</h2>
       <h4>{time}</h4>
       <Div>
-        <Button>PARAR</Button>
+        <Button onClick={Stater}>PARAR</Button>
         <Button className="display" onClick={End}>Desculpa!</Button>
       </Div>
     </Section>
